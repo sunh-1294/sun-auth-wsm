@@ -1,0 +1,48 @@
+{
+    "name": "sunh-1294/sun-auth-wsm",
+    "description": "Oauth2 with WSM",
+    "keywords": ["oauth", "wsm"],
+    "support": {
+        "issues": "https://github.com/sunh-1294/sun-auth-wsm/issues",
+        "source": "https://github.com/sunh-1294/sun-auth-wsm"
+    },
+    "authors": [
+        {
+            "name": "Kenini",
+            "email": "nguyen.huu.su@framgia.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "~6.0",
+        "illuminate/contracts": "~5.7",
+        "illuminate/http": "~5.7",
+        "illuminate/support": "~5.7",
+        "league/oauth1-client": "~1.0"
+    },
+    "require-dev": {
+        "mockery/mockery": "~1.0",
+        "phpunit/phpunit": "~7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Framgia\\Education\\Auth\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "4.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
