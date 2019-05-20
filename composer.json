@@ -27,7 +27,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Framgia\\Education\\Auth\\": "src/"
+            "Sun\\Auth\\": "src/"
         }
     },
     "autoload-dev": {

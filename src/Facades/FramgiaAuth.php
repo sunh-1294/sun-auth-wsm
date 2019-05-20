@@ -1,12 +1,12 @@
 <?php
 
-namespace Framgia\Education\Auth\Facades;
+namespace Sun\Auth\Facades;
 
 use Illuminate\Support\Facades\Facade;
-use Framgia\Education\Auth\Contracts\Factory;
+use Sun\Auth\Contracts\Factory;
 
 /**
- * @see \Framgia\Education\Auth\FramgiaAuthManager
+ * @see \Sun\Auth\FramgiaAuthManager
  */
 class FramgiaAuth extends Facade
 {

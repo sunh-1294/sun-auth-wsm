@@ -1,6 +1,6 @@
 <?php
 
-namespace Framgia\Education\Auth\Providers;
+namespace Sun\Auth\Providers;
 
 use Exception;
 use Illuminate\Support\Arr;

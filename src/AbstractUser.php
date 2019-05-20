@@ -1,6 +1,6 @@
 <?php
 
-namespace Framgia\Education\Auth;
+namespace Sun\Auth;
 
 use ArrayAccess;
 

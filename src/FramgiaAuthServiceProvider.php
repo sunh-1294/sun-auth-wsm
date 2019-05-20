@@ -1,9 +1,9 @@
 <?php
 
-namespace Framgia\Education\Auth;
+namespace Sun\Auth;
 
 use Illuminate\Support\ServiceProvider;
-use Framgia\Education\Auth\Contracts\Factory;
+use Sun\Auth\Contracts\Factory;
 
 class FramgiaAuthServiceProvider extends ServiceProvider
 {

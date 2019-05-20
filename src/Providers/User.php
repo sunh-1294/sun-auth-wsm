@@ -1,8 +1,8 @@
 <?php
 
-namespace Framgia\Education\Auth\Providers;
+namespace Sun\Auth\Providers;
 
-use Framgia\Education\Auth\AbstractUser;
+use Sun\Auth\AbstractUser;
 
 class User extends AbstractUser
 {

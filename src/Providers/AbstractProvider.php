@@ -1,6 +1,6 @@
 <?php
 
-namespace Framgia\Education\Auth\Providers;
+namespace Sun\Auth\Providers;
 
 use GuzzleHttp\Client;
 use Illuminate\Support\Arr;
@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use GuzzleHttp\ClientInterface;
 use Illuminate\Http\RedirectResponse;
-use Framgia\Education\Auth\Contracts\Provider as ProviderContract;
+use Sun\Auth\Contracts\Provider as ProviderContract;
 
 abstract class AbstractProvider implements ProviderContract
 {
