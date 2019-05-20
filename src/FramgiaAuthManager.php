@@ -1,8 +1,8 @@
 <?php
 
-namespace Framgia\Education\Auth;
+namespace Sun\Auth;
 
-use Framgia\Education\Auth\Providers\FramgiaProvider;
+use Sun\Auth\Providers\FramgiaProvider;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Manager;
 
@@ -22,7 +22,7 @@ class FramgiaAuthManager extends Manager implements Contracts\Factory
     /**
      * Create an instance of the specified driver.
      *
-     * @return \Framgia\Education\Auth\Providers\AbstractProvider
+     * @return \Sun\Auth\Providers\AbstractProvider
      */
     protected function createFramgiaDriver()
     {
@@ -36,7 +36,7 @@ class FramgiaAuthManager extends Manager implements Contracts\Factory
      *
      * @param  string  $provider
      * @param  array  $config
-     * @return \Framgia\Education\Auth\Providers\AbstractProvider
+     * @return \Sun\Auth\Providers\AbstractProvider
      */
     public function buildProvider($provider, $config)
     {

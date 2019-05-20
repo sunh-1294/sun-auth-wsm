@@ -1,6 +1,6 @@
 <?php
 
-namespace Framgia\Education\Auth\Contracts;
+namespace Sun\Auth\Contracts;
 
 interface User
 {

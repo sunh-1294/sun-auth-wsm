@@ -1,6 +1,6 @@
 <?php
 
-namespace Framgia\Education\Auth\Contracts;
+namespace Sun\Auth\Contracts;
 
 interface Provider
 {
@@ -14,7 +14,7 @@ interface Provider
     /**
      * Get the User instance for the authenticated user.
      *
-     * @return \Framgia\Education\Auth\Contracts\User
+     * @return \Sun\Auth\Contracts\User
      */
     public function user();
 }
