@@ -1,50 +1,52 @@
 
 ## Documentation
 
-To get started with **FramgiaAuth**, use Composer to add the package to your project's dependencies:
+To get started with **SunAuth**, use Composer to add the package to your project's dependencies:
 
-    composer require framgia-education/laravel-omniauth-hrsystem
+```bash
+    composer require sunh-1294/sun-auth-wsm
+```
 
 ### Configuration
 
-After installing the **FramgiaAuth** library, register the `Framgia\Education\Auth\FramgiaAuthServiceProvider` in your `config/app.php` configuration file:
+After installing the **SunAuth** library, register the `Sun\Auth\SunAuthServiceProvider` in your `config/app.php` configuration file:
 
 ```php
 'providers' => [
     // Other service providers...
 
-    Framgia\Education\Auth\FramgiaAuthServiceProvider::class,
+    Sun\Auth\SunAuthServiceProvider::class,
 ],
 ```
 
-Also, add the `FAuth` facade to the `aliases` array in your `app` configuration file:
+Also, add the `SAuth` facade to the `aliases` array in your `app` configuration file:
 
 ```php
 'aliases' => [
     // Other aliases
 
-    'FAuth' => Framgia\Education\Auth\Facades\FramgiaAuth::class,
+    'SAuth' => Sun\Auth\SunAuthServiceProvider::class,
 ],
 ```
 
-You will also need to add credentials for the OAuth services your application utilizes. These credentials should be placed in your `config/services.php` configuration file, and use the key `framgia`. For example:
+You will also need to add credentials for the OAuth services your application utilizes. These credentials should be placed in your `config/services.php` configuration file, and use the key `sun`. For example:
 ```php
-'framgia' => [
-    'client_id' => 'your-framgia-auth-app-id',
-    'client_secret' => 'your-framgia-auth-app-secret',
+'sun' => [
+    'client_id' => 'your-sun-auth-app-id',
+    'client_secret' => 'your-sun-auth-app-secret',
     'redirect' => 'http://your-callback-url',
 ],
 ```
 ### Basic Usage
 
-Next, you are ready to authenticate users! You will need two routes: one for redirecting the user to the OAuth provider, and another for receiving the callback from the provider after authentication. We will access **Framgia Auth** using the `FAuth` facade:
+Next, you are ready to authenticate users! You will need two routes: one for redirecting the user to the OAuth provider, and another for receiving the callback from the provider after authentication. We will access **Sun Auth** using the `SAuth` facade:
 
 ```php
 <?php
 
 namespace App\Http\Controllers\Auth;
 
-use FAuth;
+use SAuth;
 
 class LoginController extends Controller
 {
@@ -53,32 +55,41 @@ class LoginController extends Controller
      *
      * @return Response
      */
-    public function redirectToFramgiaAuth()
+    public function redirectToProvider()
     {
-        return FAuth::redirect();
+        return SAuth::redirect();
     }
 
     /**
-     * Obtain the user information from GitHub.
+     * Obtain the user information from WSM.
      *
      * @return Response
      */
-    public function handleFramgiaAuthCallback()
+    public function handleProviderCallback()
     {
-        $user = FAuth::user();
+        $user = SAuth::driver($provider)->user();
+        $createdUser = User::firstOrCreate([
+            'provider' => $provider,
+            'name' => $user->getName(),
+            'email' => $user->getEmail(),
+            'provider_id' => $user->getId(),
+        ]);
+        
+        // Login với user vừa tạo.
+        Auth::login($createdUser);
 
-        // $user->token;
+        return redirect('/home');
     }
 }
 ```
 
-The `redirect` method takes care of sending the user to the **Framgia Auth** provider, while the `user` method will read the incoming request and retrieve the user's information from the provider.
+The `redirect` method takes care of sending the user to the **Sun Auth** provider, while the `user` method will read the incoming request and retrieve the user's information from the provider.
 
 Of course, you will need to define routes to your controller methods:
 
 ```php
-Route::get('login/framgia', 'Auth\LoginController@redirectToFramgiaAuth');
-Route::get('login/framgia/callback', 'Auth\LoginController@handleFramgiaAuthCallback');
+Route::get('login/sun', 'Auth\LoginController@redirectToProvider');
+Route::get('login/sun/callback', 'Auth\LoginController@handleProviderCallback');
 ```
 
 #### Retrieving User Details
@@ -86,7 +97,7 @@ Route::get('login/framgia/callback', 'Auth\LoginController@handleFramgiaAuthCall
 Once you have a user instance, you can grab a few more details about the user:
 
 ```php
-$user = FAuth::user();
+$user = SAuth::user();
 
 $token = $user->token;
 $refreshToken = $user->refreshToken; // not always provided
@@ -110,5 +121,5 @@ $user->getRaw(); // Or maybe $user->user
 If you already have a valid access token for a user, you can retrieve their details using the `userFromToken` method:
 
 ```php
-$user = FAuth::userFromToken($token);
+$user = SAuth::userFromToken($token);
 ```
