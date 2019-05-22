@@ -3,7 +3,7 @@
 namespace Tests;
 
 
-class FramgiaAuthTest
+class SunAuthTest
 {
     // Todo
 }

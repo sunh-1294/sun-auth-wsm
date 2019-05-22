@@ -5,7 +5,7 @@ namespace Sun\Auth;
 use Illuminate\Support\ServiceProvider;
 use Sun\Auth\Contracts\Factory;
 
-class FramgiaAuthServiceProvider extends ServiceProvider
+class SunAuthServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -22,7 +22,7 @@ class FramgiaAuthServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(Factory::class, function ($app) {
-            return new FramgiaAuthManager($app);
+            return new SunAuthManager($app);
         });
     }
 

@@ -2,11 +2,11 @@
 
 namespace Sun\Auth;
 
-use Sun\Auth\Providers\FramgiaProvider;
+use Sun\Auth\Providers\SunProvider;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Manager;
 
-class FramgiaAuthManager extends Manager implements Contracts\Factory
+class SunAuthManager extends Manager implements Contracts\Factory
 {
     /**
      * Get a driver instance.
@@ -24,11 +24,11 @@ class FramgiaAuthManager extends Manager implements Contracts\Factory
      *
      * @return \Sun\Auth\Providers\AbstractProvider
      */
-    protected function createFramgiaDriver()
+    protected function createSunDriver()
     {
-        $config = Arr::get($this->app['config'], 'services.framgia');
+        $config = Arr::get($this->app['config'], 'services.sun');
 
-        return $this->buildProvider(FramgiaProvider::class, $config);
+        return $this->buildProvider(SunProvider::class, $config);
     }
 
     /**
@@ -71,6 +71,6 @@ class FramgiaAuthManager extends Manager implements Contracts\Factory
      */
     public function getDefaultDriver()
     {
-        return 'framgia';
+        return 'sun';
     }
 }

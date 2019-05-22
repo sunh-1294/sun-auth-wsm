@@ -25,7 +25,7 @@ Also, add the `SAuth` facade to the `aliases` array in your `app` configuration 
 'aliases' => [
     // Other aliases
 
-    'SAuth' => Sun\Auth\SunAuthServiceProvider::class,
+    'SAuth' => Sun\Auth\Facades\SunAuth::class,
 ],
 ```
 
@@ -35,6 +35,7 @@ You will also need to add credentials for the OAuth services your application ut
     'client_id' => 'your-sun-auth-app-id',
     'client_secret' => 'your-sun-auth-app-secret',
     'redirect' => 'http://your-callback-url',
+    'base_url' => 'http://base-url-wsm'
 ],
 ```
 ### Basic Usage

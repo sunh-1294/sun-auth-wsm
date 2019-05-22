@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Facade;
 use Sun\Auth\Contracts\Factory;
 
 /**
- * @see \Sun\Auth\FramgiaAuthManager
+ * @see \Sun\Auth\SunAuthManager
  */
-class FramgiaAuth extends Facade
+class SunAuth extends Facade
 {
     /**
      * Get the registered name of the component.

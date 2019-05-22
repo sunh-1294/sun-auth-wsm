@@ -5,14 +5,14 @@ namespace Sun\Auth\Providers;
 use Exception;
 use Illuminate\Support\Arr;
 
-class FramgiaProvider extends AbstractProvider implements ProviderInterface
+class SunProvider extends AbstractProvider implements ProviderInterface
 {
     /**
      * Base OAuth url
      *
      * @var string
      */
-    protected $baseUrl = 'https://edev.sun-asterisk.vn';
+    protected $baseUrl = '';
 
     /**
      * The scopes being requested.
@@ -20,6 +20,12 @@ class FramgiaProvider extends AbstractProvider implements ProviderInterface
      * @var array
      */
     protected $scopes = ['email'];
+
+    public function __construct()
+    {
+        $baseUrl = Arr::get(app('config'), 'services.sun.base_url');
+        $this->baseUrl = $baseUrl;
+    }
 
     /**
      * {@inheritdoc}
