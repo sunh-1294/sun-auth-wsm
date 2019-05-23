@@ -131,14 +131,6 @@ abstract class AbstractProvider implements ProviderContract
     abstract protected function getUserByToken($token);
 
     /**
-     * Map the raw user array to a Socialite User instance.
-     *
-     * @param  array  $user
-     * @return \Laravel\Socialite\Two\User
-     */
-    abstract protected function mapUserToObject(array $user);
-
-    /**
      * Get the default options for an HTTP request.
      *
      * @return array
@@ -253,7 +245,7 @@ abstract class AbstractProvider implements ProviderContract
 
         $state = $this->request->session()->pull('state');
 
-        return ! (strlen($state) > 0 && $this->request->input('state') === $state);
+        return !(strlen($state) > 0 && $this->request->input('state') === $state);
     }
 
     /**
@@ -394,7 +386,7 @@ abstract class AbstractProvider implements ProviderContract
      */
     protected function usesState()
     {
-        return ! $this->stateless;
+        return !$this->stateless;
     }
 
     /**

@@ -12,7 +12,7 @@ class SunProvider extends AbstractProvider implements ProviderInterface
      *
      * @var string
      */
-    protected $baseUrl = '';
+    protected $baseUrl;
 
     /**
      * The scopes being requested.
@@ -21,10 +21,11 @@ class SunProvider extends AbstractProvider implements ProviderInterface
      */
     protected $scopes = ['email'];
 
-    public function __construct()
+    public function __construct(...$args)
     {
-        $baseUrl = Arr::get(app('config'), 'services.sun.base_url');
-        $this->baseUrl = $baseUrl;
+        parent::__construct(...$args);
+
+        $this->baseUrl = Arr::get(app('config'), 'services.sun.base_url');
     }
 
     /**
