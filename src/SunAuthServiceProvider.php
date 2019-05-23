@@ -2,8 +2,8 @@
 
 namespace Sun\Auth;
 
-use Illuminate\Support\ServiceProvider;
 use Sun\Auth\Contracts\Factory;
+use Illuminate\Support\ServiceProvider;
 
 class SunAuthServiceProvider extends ServiceProvider
 {

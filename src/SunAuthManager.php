@@ -2,9 +2,9 @@
 
 namespace Sun\Auth;
 
-use Sun\Auth\Providers\SunProvider;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Manager;
+use Sun\Auth\Providers\SunProvider;
 
 class SunAuthManager extends Manager implements Contracts\Factory
 {
