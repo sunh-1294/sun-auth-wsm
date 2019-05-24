@@ -1,7 +1,10 @@
 {
     "name": "sunh-1294/sun-auth-wsm",
     "description": "Oauth2 with WSM",
-    "keywords": ["oauth", "wsm"],
+    "keywords": [
+        "oauth",
+        "wsm"
+    ],
     "support": {
         "issues": "https://github.com/sunh-1294/sun-auth-wsm/issues",
         "source": "https://github.com/sunh-1294/sun-auth-wsm"
@@ -27,7 +30,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Sun\\Auth\\": "src/"
+            "Sun\\Auth\\": "src"
         }
     },
     "autoload-dev": {
@@ -36,8 +39,13 @@
         }
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "4.0-dev"
+        "laravel": {
+            "providers": [
+                "Sun\\Auth\\SunAuthServiceProvider"
+            ],
+            "aliases": {
+                "SunAuth": "Sun\\Auth\\Facades\\SunAuth"
+            }
         }
     },
     "config": {
