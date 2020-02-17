@@ -39,6 +39,9 @@
         }
     },
     "extra": {
+        "branch-alias": {
+            "dev-master": "master"
+        },
         "laravel": {
             "providers": [
                 "Sun\\Auth\\SunAuthServiceProvider"
